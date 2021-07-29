@@ -1,0 +1,4 @@
+# digital_lock
+I started doing about the assignment very early when it was released. At that time, I did not receive new class task invitations, so I created a repository in my account. All the codes and traces of modifications are in the repository I created. When I wanted to submit the code, I found that a repository had been created for me to store files in the classroom. I don't know how to transfer all files and modification records. Only the necessary include Verilog Files and test benches ( .v ), Quartus Project File ( .qpf ) and
+Quartus Settings File ( .qsf ) required in the task brief can be uploaded. If you wish, you can enter my private repository to view the records of my design and all the comments submitted.
+https://github.com/haozhe1/digital-lock.git This is my HTTP link to my own repository.

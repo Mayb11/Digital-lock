@@ -1,0 +1,288 @@
+# Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
+# Reading C:/Users/84674/modelsim.tcl
+# do digital_lock_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/84674/Desktop/MSC/ELEC5566M/Github/ELEC5566M-Assignment2-haozhe1 {C:/Users/84674/Desktop/MSC/ELEC5566M/Github/ELEC5566M-Assignment2-haozhe1/digital_lock.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:09:57 on Mar 16,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/84674/Desktop/MSC/ELEC5566M/Github/ELEC5566M-Assignment2-haozhe1" C:/Users/84674/Desktop/MSC/ELEC5566M/Github/ELEC5566M-Assignment2-haozhe1/digital_lock.v 
+# -- Compiling module digital_lock
+# 
+# Top level modules:
+# 	digital_lock
+# End time: 10:09:57 on Mar 16,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/84674/Desktop/MSC/ELEC5566M/Github/ELEC5566M-Assignment2-haozhe1 {C:/Users/84674/Desktop/MSC/ELEC5566M/Github/ELEC5566M-Assignment2-haozhe1/digital_lock_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:09:57 on Mar 16,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/84674/Desktop/MSC/ELEC5566M/Github/ELEC5566M-Assignment2-haozhe1" C:/Users/84674/Desktop/MSC/ELEC5566M/Github/ELEC5566M-Assignment2-haozhe1/digital_lock_tb.v 
+# -- Compiling module digital_lock_tb
+# 
+# Top level modules:
+# 	digital_lock_tb
+# End time: 10:09:57 on Mar 16,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  digital_lock_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" digital_lock_tb 
+# Start time: 10:09:57 on Mar 16,2021
+# Loading work.digital_lock_tb
+# Loading work.digital_lock
+# 
+# do C:/Users/84674/Desktop/MSC/ELEC5566M/Github/ELEC5566M-Assignment2-haozhe1/../ELEC5566M-Resources/simulation/load_sim.tcl
+#
+# NativeLink Simulation Initialisation Script
+# ===========================================
+# By: Thomas Carpenter
+# Date: 31st December 2017
+# For: University of Leeds
+#
+# Description
+# ===========
+# This is a basic sample script for initialising a simulation
+#
+# All commands in this script will be executed, and comments will
+# be printed to the screen
+#
+# Most of the work in compiling is done by Quartus automatically.
+# Here we can add some extra commands.
+#
+# There is lots of stuff you can do, such as running initialisation
+# scripts, preparing memory contents, setting up the simulator.
+#
+# 
+#
+# First lets clean up any old NativeLink backup files. Quartus
+# creates a new backup file every time it runs. It never deletes
+# these files so you end up with an ever increasing number of them.
+#
+# The {*}[glob -nocomplain ... ] command performs wildcard matching
+# of filenames, to make sure we get all .bak files. The "-nocomplain"
+# and "catch {}" ensure that if no backups exist, there is no error.
+#
+# 
+# catch {file delete {*}[glob -nocomplain *_msim_rtl_verilog.do.bak*]}
+# 0
+# 
+#
+# This will continue executing our script if a break point in the
+# simulation is reached - for example the $stop command in Verilog
+#
+# 
+# onbreak {resume}
+# 
+# 
+# Once you add signals to the Wave view to see them graphically
+# and got them all set up to your liking (Radix, arrangement, etc.)
+# it is possible to save that layout as a "Waveform Format Do File".
+# From modelsim if you click on the Wave window and File->Save Format
+# this will generate the "Do" file for you.
+#
+# I will assume that you saved the file with name "wave.do" (default)
+# in the simulation folder (same place as this TCL).
+#
+# Each time we run the simulation, we can run this file to restore 
+# the setup:
+#
+#   do <filename>
+#
+# Of course the first time you run the simulation the file might not
+# yet exist - you might never choose to save a format. So we also
+# first check if the file exists before do-ing it.
+# 
+# 
+# We normalise the filename to prevent issues with spaces in the filename
+# set waveFile [file normalize "./wave.do"]
+# C:/Users/84674/Desktop/MSC/ELEC5566M/Github/ELEC5566M-Assignment2-haozhe1/simulation/modelsim/wave.do
+# 
+# if { [file exists $waveFile] } {
+#     #If the saved file exists, load it
+#     do $waveFile
+# } else {
+#     #Otherwise simply add all signals in the testbench formatted as unsigned decimal.
+#     add wave -radix unsigned -position insertpoint sim:/*
+# }
+# 
+#
+# Then we can configure the units for the timeline. Lets stick to
+# nanoseconds instead of the default of picoseconds.
+#
+# 
+# configure wave -timelineunits ns
+# 
+# 
+# Next we can start the simulation. We simply say "run".
+#
+# The "run" command can be followed by a time parameter, such as:
+#
+#     run 100ns     # Run for 100ns
+#     run -all      # Run until the testbench stops changing stimuli
+#     run 10        # Run for 10 "timesteps" (typically 1ps per step)
+#
+# ========== Simulation Starts Here ===========
+# 
+# run -all
+# @time    0ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = x, ORIGIN_STATE = x,  SECOND_STATE = x, THIRD_STATE = x, UNLOCK_STATE = x
+# @time   20ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 1, ORIGIN_STATE = 1,  SECOND_STATE = 1, THIRD_STATE = 1, UNLOCK_STATE = 1
+# @time   40ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 1
+# @time  220ns:key[0] = 0, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 1
+# @time  260ns:key[0] = 0, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 2220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 3220ns:key[0] = 0, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 5220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 6220ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 8220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 9220ns:key[0] = 1, key[1] = 1, key[2] = 0, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 11220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 12220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 0, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 14220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 15220ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 15260ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 17220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 18220ns:key[0] = 0, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 20220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 21220ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 23220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 24220ns:key[0] = 1, key[1] = 1, key[2] = 0, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 26220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 27220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 0, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 29220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 30220ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 30280ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 1, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 32220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 1, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 33220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 0, LOCK_STATE = 1, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 33260ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 0, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 35220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 36220ns:key[0] = 0, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 38220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 39220ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 41220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 42220ns:key[0] = 1, key[1] = 1, key[2] = 0, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 44220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 45220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 0, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 47220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 48220ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 48280ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 1
+# @time 50220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 1
+# Running testbench
+# 
+# ========== Simulation Ends Here ===========
+#
+# Once the simulation finishes we will reach here
+#
+# Let's for example zoom out in the wave display to fit all data
+#
+# 
+# wave zoom full
+# 0 ps
+# 31441945500 ps
+restart
+run
+# @time    0ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = x, ORIGIN_STATE = x,  SECOND_STATE = x, THIRD_STATE = x, UNLOCK_STATE = x
+# @time   20ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 1, ORIGIN_STATE = 1,  SECOND_STATE = 1, THIRD_STATE = 1, UNLOCK_STATE = 1
+# @time   40ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 1
+# @time  220ns:key[0] = 0, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 1
+# @time  260ns:key[0] = 0, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 2220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 3220ns:key[0] = 0, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 5220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 6220ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 8220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 9220ns:key[0] = 1, key[1] = 1, key[2] = 0, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 11220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 12220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 0, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 14220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 15220ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 15260ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 17220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 18220ns:key[0] = 0, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 20220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 21220ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 23220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 24220ns:key[0] = 1, key[1] = 1, key[2] = 0, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 26220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 27220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 0, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 29220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 30220ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 30280ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 1, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 32220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 1, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 33220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 0, LOCK_STATE = 1, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 33260ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 0, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 35220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 36220ns:key[0] = 0, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 38220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 39220ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 41220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 42220ns:key[0] = 1, key[1] = 1, key[2] = 0, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 44220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 45220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 0, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 47220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 48220ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 48280ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 1
+# @time 50220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 1
+# Running testbench
+run
+run
+restart
+run
+# GetModuleFileName: 找不到指定的模块。
+# 
+# 
+# GetModuleFileName: 找不到指定的模块。
+# 
+# 
+# @time    0ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = x, ORIGIN_STATE = x,  SECOND_STATE = x, THIRD_STATE = x, UNLOCK_STATE = x
+# @time   20ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 1, ORIGIN_STATE = 1,  SECOND_STATE = 1, THIRD_STATE = 1, UNLOCK_STATE = 1
+# @time   40ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 1
+# @time  220ns:key[0] = 0, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 1
+# @time  260ns:key[0] = 0, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 2220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 3220ns:key[0] = 0, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 5220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 6220ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 8220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 9220ns:key[0] = 1, key[1] = 1, key[2] = 0, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 11220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 12220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 0, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 14220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 15220ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 1,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 15260ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 17220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 18220ns:key[0] = 0, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 20220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 21220ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 23220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 24220ns:key[0] = 1, key[1] = 1, key[2] = 0, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 26220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 27220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 0, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 29220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 30220ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 1, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 30280ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 1, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 32220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 1, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 33220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 0, LOCK_STATE = 1, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 0
+# @time 33260ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 0, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 35220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 36220ns:key[0] = 0, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 38220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 39220ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 41220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 42220ns:key[0] = 1, key[1] = 1, key[2] = 0, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 44220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 45220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 0, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 47220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 48220ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 1, UNLOCK_STATE = 0
+# @time 48280ns:key[0] = 1, key[1] = 0, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 1
+# @time 50220ns:key[0] = 1, key[1] = 1, key[2] = 1, key[3] = 1, LOCK_STATE = 0, ORIGIN_STATE = 0,  SECOND_STATE = 0, THIRD_STATE = 0, UNLOCK_STATE = 1
+# Running testbench
+# End time: 10:12:09 on Mar 16,2021, Elapsed time: 0:02:12
+# Errors: 0, Warnings: 0
